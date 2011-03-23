@@ -1,0 +1,1 @@
+cmd_/media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/coff/binfmt_coff.o := ld -m elf_i386   -r -o /media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/coff/binfmt_coff.o /media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/coff/binfmt-coff.o 

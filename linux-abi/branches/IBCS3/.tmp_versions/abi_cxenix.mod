@@ -1,0 +1,2 @@
+/media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/cxenix/abi_cxenix.ko
+/media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/cxenix/sysent.o /media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/cxenix/misc.o /media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/cxenix/stubs.o /media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/cxenix/signal.o /media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/cxenix/pathconf.o /media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/cxenix/utsname.o

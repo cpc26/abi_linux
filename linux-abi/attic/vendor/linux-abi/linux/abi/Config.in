@@ -1,0 +1,45 @@
+
+tristate 'Support for binary emulation of other systems' CONFIG_ABI
+
+if [ "$CONFIG_ABI" != "n" ]; then
+  dep_tristate 'Solaris binary emulation support' CONFIG_ABI_SOLARIS $CONFIG_ABI
+  if [ "$ARCH" = "i386" ]; then
+    dep_tristate 'UnixWare 7.x binary emulation support' CONFIG_ABI_UW7 $CONFIG_ABI
+    dep_tristate 'BSD binary emulation support' CONFIG_ABI_BSD $CONFIG_ABI
+    dep_tristate 'Binary emulation support for other SVR3/SVR4-based systems' CONFIG_ABI_IBCS $CONFIG_ABI
+    if [ "$CONFIG_ABI_IBCS" != "n" ]; then
+      bool '  Include SCO OpenServer specifics' CONFIG_ABI_IBCS_SCO
+      bool '  Include ISC specifics' CONFIG_ABI_IBCS_ISC
+      bool '  Include Wyse V/386 specifics' CONFIG_ABI_IBCS_WYSE
+      if [ "$CONFIG_ABI_IBCS_WYSE" != "n" ]; then
+	bool '  Include Wyse V/386 MP extensions' CONFIG_ABI_IBCS_WYSEMP
+      fi
+      bool '  Include Xenix 286 specifics' CONFIG_ABI_IBCS_X286
+    fi
+
+	# Bring in the SVR4 support if either iBCS or Solaris are enabled
+
+    if [ "$CONFIG_ABI_IBCS" = "y" -o "$CONFIG_ABI_SOLARIS" = "y" -o "$CONFIG_ABI_UW7" = "y" ]; then
+      define_bool CONFIG_ABI_SVR4_COMMON y
+    else
+      if [ "$CONFIG_ABI_IBCS" = "y" -o "$CONFIG_ABI_SOLARIS" = "m" -o "$CONFIG_ABI_UW7" = "m" ]; then
+        define_bool CONFIG_ABI_SVR4_COMMON m
+      else
+	define_bool CONFIG_ABI_SVR4_COMMON n
+      fi
+    fi
+  fi
+  define_bool CONFIG_ABI_SPX y
+  define_bool CONFIG_ABI_XTI y
+
+  define_bool CONFIG_ABI_TLI_OPTMGMT y
+  define_bool CONFIG_ABI_XTI_OPTMGMT n
+
+  bool 'Enable trace debugging messages' CONFIG_ABI_TRACE
+  bool 'Enable verbose errors' CONFIG_ABI_VERBOSE_ERRORS
+
+  tristate 'Kernel support for COFF binaries' CONFIG_BINFMT_COFF
+  tristate 'Kernel support for XOUT binaries' CONFIG_BINFMT_XOUT
+
+fi
+

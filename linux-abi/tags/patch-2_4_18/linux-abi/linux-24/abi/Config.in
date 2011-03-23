@@ -1,0 +1,34 @@
+
+mainmenu_option next_comment
+comment 'Binary emulation of other systems'
+
+tristate 'Support for binary emulation of other systems' CONFIG_ABI
+
+dep_tristate ' SVR3/SVR4 (and derivates) binary emulation support' CONFIG_ABI_SVR4 $CONFIG_ABI
+if [ "$CONFIG_ABI_SVR4" = "y" -o "$CONFIG_ABI_SVR4" = "m" ]; then
+   comment 'You have to select at least one of the following emulations:'
+   dep_tristate ' UnixWare 7.x binary emulation support' CONFIG_ABI_UW7 $CONFIG_ABI_SVR4
+   dep_tristate ' Solaris 2.x binary emulation support' CONFIG_ABI_SOLARIS $CONFIG_ABI_SVR4
+   dep_tristate ' iBCS2/iABI4 binary emulation support' CONFIG_ABI_IBCS $CONFIG_ABI_SVR4
+   dep_tristate ' ISC binary emulation support' CONFIG_ABI_ISC $CONFIG_ABI_SVR4
+   dep_tristate ' SCO OpenServer 5/SCO Unix 3.x/Xenix binary emulation support' CONFIG_ABI_SCO $CONFIG_ABI_SVR4
+   dep_tristate ' Wyse V/386 binary emulation support' CONFIG_ABI_WYSE $CONFIG_ABI_SVR4
+fi 
+
+comment 'Support for foreign binary formats'
+# coff is used by SVR3, x.out by Xenix, both are SVR4-subsets
+dep_tristate ' Kernel support for COFF binaries' CONFIG_BINFMT_COFF $CONFIG_ABI_SVR4
+dep_tristate ' Kernel support for x.out binaries' CONFIG_BINFMT_XOUT $CONFIG_ABI_SVR4
+   dep_mbool '   Include Xenix 286 segmented binary specifics' CONFIG_BINFMT_XOUT_X286 $CONFIG_BINFMT_XOUT
+
+#comment 'Linux-ABI debugging settings'
+
+if [ "$CONFIG_ABI" != "n" ]; then
+   define_bool CONFIG_ABI_SPX y
+   define_bool CONFIG_ABI_XTI y
+
+   define_bool CONFIG_ABI_TLI_OPTMGMT y
+   define_bool CONFIG_ABI_XTI_OPTMGMT n
+fi
+
+endmenu

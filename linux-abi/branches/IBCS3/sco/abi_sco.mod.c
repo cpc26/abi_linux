@@ -1,0 +1,125 @@
+#include <linux/module.h>
+#include <linux/vermagic.h>
+#include <linux/compiler.h>
+
+MODULE_INFO(vermagic, VERMAGIC_STRING);
+
+struct module __this_module
+__attribute__((section(".gnu.linkonce.this_module"))) = {
+ .name = KBUILD_MODNAME,
+ .init = init_module,
+#ifdef CONFIG_MODULE_UNLOAD
+ .exit = cleanup_module,
+#endif
+ .arch = MODULE_ARCH_INIT,
+};
+
+static const struct modversion_info ____versions[]
+__used
+__attribute__((section("__versions"))) = {
+	{ 0xf13803af, "module_layout" },
+	{ 0xb9a12636, "per_cpu__current_task" },
+	{ 0x5f021865, "abi_brk" },
+	{ 0x2831a1e5, "abi_sigfunc" },
+	{ 0x92b8a558, "svr4_hrtsys" },
+	{ 0xe56ce72e, "abi_wait" },
+	{ 0xe3ab1532, "svr4_fpathconf" },
+	{ 0xcedf9109, "abi_debug" },
+	{ 0xbc89b7d3, "abi_gettime" },
+	{ 0xb279da12, "pv_lock_ops" },
+	{ 0x8f8bfbc4, "svr4_xmknod" },
+	{ 0x3e58a556, "svr4_console_ioctl" },
+	{ 0xecb63c5a, "svr4_getrlimit" },
+	{ 0x47ecc1c3, "svr4_getmsg" },
+	{ 0x326df9e1, "vfs_stat" },
+	{ 0xaec1c14e, "abi_exec" },
+	{ 0x3bcc0bf2, "abi_sigaction" },
+	{ 0x173aeb82, "unregister_exec_domain" },
+	{ 0xa3ec98c, "abi_map" },
+	{ 0x31b60d07, "svr4_open" },
+	{ 0xd0089a36, "abi_sigsuspend" },
+	{ 0x2c5eb314, "svr4_fil_ioctl" },
+	{ 0x973873ab, "_spin_lock" },
+	{ 0x4fc1c15a, "abi_mkdir" },
+	{ 0x227ca131, "svr4_sockmod_ioctl" },
+	{ 0x3dc0e554, "abi_kill" },
+	{ 0x6729d3df, "__get_user_4" },
+	{ 0x4ee3a4c6, "abi_procids" },
+	{ 0xccdf7b56, "lcall7_syscall" },
+	{ 0x8d749693, "v7_utsname" },
+	{ 0x1cc3dfc9, "bsd_ioctl_termios" },
+	{ 0xfb8d9309, "report_svr4_stat" },
+	{ 0xfe136b4f, "abi_getpid" },
+	{ 0xb7f5ad1f, "svr4_sysi86" },
+	{ 0x2978dfaa, "svr4_fstat" },
+	{ 0xf1262302, "abi_pipe" },
+	{ 0x3e3f63e5, "svr4_semsys" },
+	{ 0x555f13a2, "abi_fork" },
+	{ 0xb72397d5, "printk" },
+	{ 0xa1c76e0a, "_cond_resched" },
+	{ 0x2f287f0d, "copy_to_user" },
+	{ 0xb4390f9a, "mcount" },
+	{ 0x5782b212, "lcall7_dispatch" },
+	{ 0x6c2e3320, "strncmp" },
+	{ 0x59ac512e, "abi_sigprocmask" },
+	{ 0xc3aaf0a9, "__put_user_1" },
+	{ 0x3daa69da, "vfs_lstat" },
+	{ 0xe83203bd, "svr4_video_ioctl" },
+	{ 0x28d761c3, "sys_call" },
+	{ 0x75895dc7, "svr4_lstat" },
+	{ 0xd851af78, "up_write" },
+	{ 0x45d55543, "down_write" },
+	{ 0xeda84435, "fput" },
+	{ 0x176f9606, "svr4_context" },
+	{ 0xa85a53ef, "svr4_statfs" },
+	{ 0x85c3f2f1, "abi_getgid" },
+	{ 0x4020a4b6, "short_inode_map" },
+	{ 0x69fb05e6, "abi_settime" },
+	{ 0xf11543ff, "find_first_zero_bit" },
+	{ 0x46f85249, "cxenix" },
+	{ 0x21f82b59, "do_mmap_pgoff" },
+	{ 0x4aa59002, "abi_stime" },
+	{ 0x7171121c, "overflowgid" },
+	{ 0xb8ad861d, "register_exec_domain" },
+	{ 0xe177d32d, "svr4_term_ioctl" },
+	{ 0xb2fd5ceb, "__put_user_4" },
+	{ 0xcab3db7c, "svr4_stat" },
+	{ 0xadcafe38, "svr4_sigpending" },
+	{ 0xf0fdf6cb, "__stack_chk_fail" },
+	{ 0x2de881dd, "svr4_pathconf" },
+	{ 0xca2f5521, "abi_ioctl_socksys" },
+	{ 0x1eb15e03, "svr4_sysfs" },
+	{ 0xb5cd8fa7, "abi_read" },
+	{ 0x7362dd1e, "vfs_fstat" },
+	{ 0x86b3eed5, "vfs_statfs" },
+	{ 0xd383fc4a, "svr4_setrlimit" },
+	{ 0x9335317e, "user_path_at" },
+	{ 0x390543a1, "path_put" },
+	{ 0xa38c01a1, "svr4_stream_ioctl" },
+	{ 0xb175d33a, "abi_time" },
+	{ 0x74bec825, "socksys_syscall" },
+	{ 0x6674d51c, "abi_getuid" },
+	{ 0x9dfb77d1, "svr4_msgsys" },
+	{ 0x59307f26, "svr4_fstatfs" },
+	{ 0xd99cd0d8, "svr4_shmsys" },
+	{ 0x546fab6a, "svr4_ulimit" },
+	{ 0xb4ae86c2, "fget" },
+	{ 0xc68fa320, "abi_utime" },
+	{ 0x5a4896a8, "__put_user_2" },
+	{ 0x8b618d08, "overflowuid" },
+	{ 0x8f9c199c, "__get_user_2" },
+	{ 0x609fa4bc, "svr4_fcntl" },
+	{ 0x1ba587a9, "svr4_putmsg" },
+	{ 0xd6c963c, "copy_from_user" },
+	{ 0x29c1c74f, "abi_trace_flg" },
+	{ 0x6ac149f0, "svr4_mknod" },
+	{ 0xe914e41e, "strcpy" },
+};
+
+static const char __module_depends[]
+__used
+__attribute__((section(".modinfo"))) =
+"depends=abi_svr4,abi_lcall,abi_util,abi_cxenix";
+
+
+MODULE_INFO(srcversion, "5E40B2E80F232252EDBBD20");

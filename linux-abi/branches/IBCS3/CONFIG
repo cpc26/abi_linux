@@ -1,0 +1,45 @@
+# Linux-Abi Configuration File.
+# "Y" and "N" (without double quotes) are the only acceptable values.
+# Make sure there are no leading/trailing spaces/tabs !
+
+# "ABI_UTIL" must be "Y" if "ABI_TRACE" is "Y"
+ABI_UTIL=Y
+
+# "ABI_LCALL" must be "Y" for the package to work
+ABI_LCALL=Y
+
+# "ABI_SVR4" must be "Y" if one of 6 personalities below is set to "Y"
+ABI_SVR4=Y
+
+ABI_SCO=Y
+ABI_IBCS=Y
+ABI_ISC=Y
+ABI_SOLARIS=Y
+ABI_UW7=Y
+ABI_WYSE=Y
+
+BINFMT_COFF=Y
+BINFMT_XOUT=Y
+BINFMT_XOUT_X286=Y
+
+ABI_TRACE=Y
+ABI_SIGRETURN=Y
+
+ABI_SPX=Y
+ABI_XTI=Y
+
+# Two parameters below are mutually exclusive
+ABI_XTI_OPTMGMT=N
+ABI_TLI_OPTMGMT=Y
+
+# If the parameter below is set to Y only programs marked with
+# "util/elf_mark" will be able to use "lcall $7" logic.
+# This flag applies only to ELF binaries - COFF and XOUT executables
+# will be allocated "lcall LDT" anyway.
+ABI_ELFMARK=Y
+
+# Enable conflict-free mapping of inode numbers in a short inode environment
+ABI_SHINOMAP=Y
+
+# Enable "/proc/abi" support
+ABI_PROC=Y

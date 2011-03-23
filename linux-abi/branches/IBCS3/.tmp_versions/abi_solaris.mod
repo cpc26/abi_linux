@@ -1,0 +1,2 @@
+/media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/solaris/abi_solaris.ko
+/media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/solaris/lfs.o /media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/solaris/solarisx86.o /media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/solaris/socket.o /media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/solaris/stat.o /media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/solaris/sysent.o

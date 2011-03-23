@@ -1,0 +1,27 @@
+#!/bin/sh
+#-----------------------------
+ABI_DIR=`dirname $0`
+ABI_DIR=`cd $ABI_DIR && pwd`
+
+if [ ! -f $ABI_DIR/CONFIG ]
+ then
+  echo File $ABI_DIR/CONFIG not found
+  exit 1
+fi
+. $ABI_DIR/CONFIG
+
+[ $ABI_WYSE    = Y ] && rmmod $ABI_DIR/wyse/abi_wyse.ko
+[ $ABI_UW7     = Y ] && rmmod $ABI_DIR/uw7/abi_uw7.ko
+[ $ABI_SOLARIS = Y ] && rmmod $ABI_DIR/solaris/abi_solaris.ko
+[ $ABI_ISC     = Y ] && rmmod $ABI_DIR/isc/abi_isc.ko
+[ $ABI_IBCS    = Y ] && rmmod $ABI_DIR/ibcs/abi_ibcs.ko
+[ $ABI_SCO     = Y ] && rmmod $ABI_DIR/sco/abi_sco.ko
+[ $ABI_SCO     = Y ] && rmmod $ABI_DIR/cxenix/abi_cxenix.ko
+
+[ $ABI_SVR4    = Y ] && rmmod $ABI_DIR/svr4/abi_svr4.ko
+
+[ $BINFMT_XOUT = Y ] && rmmod $ABI_DIR/xout/binfmt_xout.ko
+[ $BINFMT_COFF = Y ] && rmmod $ABI_DIR/coff/binfmt_coff.ko
+
+[ $ABI_LCALL   = Y ] && rmmod $ABI_DIR/lcall/abi_lcall.ko
+[ $ABI_UTIL    = Y ] && rmmod $ABI_DIR/util/abi_util.ko

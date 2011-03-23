@@ -1,0 +1,49 @@
+# This file should not be modified.
+
+ifeq ($(ABI_UTIL),Y)
+obj-m := $(obj-m) util/
+endif
+
+ifeq ($(ABI_LCALL),Y)
+obj-m := $(obj-m) lcall/
+endif
+
+ifeq ($(ABI_SVR4),Y)
+obj-m := $(obj-m) svr4/
+endif
+
+ifeq ($(ABI_IBCS),Y)
+obj-m := $(obj-m) ibcs/
+endif
+
+ifeq ($(ABI_ISC),Y)
+obj-m := $(obj-m) isc/
+endif
+
+ifeq ($(ABI_SCO),Y)
+obj-m := $(obj-m) sco/ cxenix/
+endif
+
+ifeq ($(ABI_SOLARIS),Y)
+obj-m := $(obj-m) solaris/
+endif
+
+ifeq ($(ABI_UW7),Y)
+obj-m := $(obj-m) uw7/
+endif
+
+ifeq ($(ABI_WYSE),Y)
+obj-m := $(obj-m) wyse/
+endif
+
+ifeq ($(BINFMT_COFF),Y)
+obj-m := $(obj-m) coff/
+endif
+
+ifeq ($(BINFMT_XOUT),Y)
+obj-m := $(obj-m) xout/
+endif
+
+ifeq ($(BINFMT_XOUT_X286),Y)
+X286EMUL := $(shell $(ABI_DIR)/x286/make286)
+endif

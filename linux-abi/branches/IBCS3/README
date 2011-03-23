@@ -1,0 +1,10 @@
+1. Examine and modify "CONFIG" if required.
+2. Run "make".
+3. Run "abi_ldr" to load compiled modules.
+4. Run your application.
+5. If it does not behave as expected run "en_tr" to enable tracing via syslogd.
+6. After fixing the problem run "rm_tr" to stop the trace.
+7. Exit from your application.
+8. Run "abi_uld" to unload modules from step "3".
+9. It is recommended to run "make clean" after modifying "CONFIG".
+

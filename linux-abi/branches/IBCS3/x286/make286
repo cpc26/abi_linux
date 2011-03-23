@@ -1,0 +1,12 @@
+#!/bin/sh
+cd `dirname $0`
+for f in `ls -t`
+ do
+  test $f = x286emul && exit 0
+  break
+ done
+test -f /usr/include/stdio.h || exit 1
+
+cc -s -m32 -o x286emul *.S *.c
+#cc -DDEBUG -DDEBUG_STACK -DDEBUG_CALL -DDEBUG_ENV -m32 -o x286emul *.S *.c
+../util/elf_mark -2 x286emul > /dev/null

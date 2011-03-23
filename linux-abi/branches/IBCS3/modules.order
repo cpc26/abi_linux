@@ -1,0 +1,12 @@
+kernel//media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/util/abi_util.ko
+kernel//media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/lcall/abi_lcall.ko
+kernel//media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/svr4/abi_svr4.ko
+kernel//media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/ibcs/abi_ibcs.ko
+kernel//media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/isc/abi_isc.ko
+kernel//media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/sco/abi_sco.ko
+kernel//media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/cxenix/abi_cxenix.ko
+kernel//media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/solaris/abi_solaris.ko
+kernel//media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/uw7/abi_uw7.ko
+kernel//media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/wyse/abi_wyse.ko
+kernel//media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/coff/binfmt_coff.ko
+kernel//media/sf_WILKUN/linux-abi/linux-abi/branches/IBCS3/xout/binfmt_xout.ko

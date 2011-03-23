@@ -1,0 +1,11 @@
+<-
+	Everything BELOW "<-" mark is IGNORED.
+	Everything ABOVE "<-" mark must be in the form of "LinuxDev=AbiDev".
+	Both Device Numbers are hexadecimal "MMMmmmmm",
+where	"mmmmm" - is the Minor Device Number (low 20 bits),
+and	"MMM" - is the Major Device Number (high 12 bits). 
+	Empty Lines and Comments are not allowed !
+
+	Example - map "/dev/mapper/VolGroup00-LogVol00" (major 253, minor 0)
+	to "/dev/hda2" (major 3, minor 2):
+0FD00000=00300002

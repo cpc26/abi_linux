@@ -1,0 +1,30 @@
+#!/bin/sh
+#-----------------------------
+ABI_DIR=`dirname $0`
+ABI_DIR=`cd $ABI_DIR && pwd`
+
+if [ ! -f $ABI_DIR/CONFIG ]
+ then
+  echo File $ABI_DIR/CONFIG not found
+  exit 1
+fi
+. $ABI_DIR/CONFIG
+
+[ $ABI_SHINOMAP = Y ] && shino="short_inode_mapping=1"
+[ $ABI_UTIL    = Y ] && insmod $ABI_DIR/util/abi_util.ko $shino
+[ $ABI_LCALL   = Y ] && insmod $ABI_DIR/lcall/abi_lcall.ko ExeFlags=$ABI_DIR/PERFLAGS
+$ABI_DIR/util/abi_exec
+
+[ $BINFMT_COFF = Y ] && insmod $ABI_DIR/coff/binfmt_coff.ko
+[ $BINFMT_XOUT = Y ] && insmod $ABI_DIR/xout/binfmt_xout.ko Emulx286=$ABI_DIR/x286/x286emul
+
+[ $ABI_SVR4    = Y ] && insmod $ABI_DIR/svr4/abi_svr4.ko InodeMap=$ABI_DIR/INODEMAP DeviceMap=$ABI_DIR/DEVICEMAP
+
+[ $ABI_SCO     = Y ] && insmod $ABI_DIR/cxenix/abi_cxenix.ko
+[ $ABI_SCO     = Y ] && insmod $ABI_DIR/sco/abi_sco.ko
+[ $ABI_IBCS    = Y ] && insmod $ABI_DIR/ibcs/abi_ibcs.ko
+[ $ABI_ISC     = Y ] && insmod $ABI_DIR/isc/abi_isc.ko
+[ $ABI_SOLARIS = Y ] && insmod $ABI_DIR/solaris/abi_solaris.ko
+[ $ABI_UW7     = Y ] && insmod $ABI_DIR/uw7/abi_uw7.ko
+[ $ABI_WYSE    = Y ] && insmod $ABI_DIR/wyse/abi_wyse.ko
+

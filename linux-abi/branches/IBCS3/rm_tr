@@ -1,0 +1,7 @@
+#!/bin/sh
+if lsmod | grep abi_lcall > /dev/null
+ then
+  `dirname $0`/util/abitrace 0
+ else
+  echo Module abi_lcall not loaded.
+fi

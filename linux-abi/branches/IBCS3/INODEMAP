@@ -1,0 +1,56 @@
+<-
+	Everything BELOW "<-" mark is IGNORED.
+	Everything ABOVE "<-" mark must be in the form of "LinuxInode=AbiInode",
+where	both Inode Numbers are in hex padded with 0 to the left.
+	Empty Lines and Comments are not allowed !
+
+	Example:
+01C4543A=0000543A
+75F4578E=007666AB
+------------------------------------------------------------
+It appears that the "short inode" version of 
+"Get Current Working Directory" SCO library call
+does not work correctly if last 16 bits of 2 directory entries
+are the same and one of them belongs to the "Actual Path". 
+ 
+The listing below was taken from 
+default RHEL5 installation (kernel 2.8.18-8.el5): 
+ 
+Inode		Actual 		Reported 
+Number		Path		by "getcwd" 
+---------	-----------	-----------
+262146		/bin		/ 
+2		/boot		/boot
+707		/dev		/dev 
+163841		/etc		/dev
+196612		/home		/home
+196609		/lib		/tmp
+11		/lost+found	/lost+found
+294914		/media		/media
+6206		/misc		/misc
+32772		/mnt		/mnt 
+6210		/net		/net 
+131074		/opt		/ 
+1		/proc		/proc
+32769		/root		/dev
+65538		/sbin		/
+308		/selinux	/selinux
+98306		/srv		/media
+1		/sys		/sys
+262145		/tmp		/tmp
+229377		/usr		/dev
+327681		/var		/tmp
+-------------------------------------------
+Solution - use "INODEMAP" functionality:
+ 
+00040002=00000402 
+00028001=00000281 
+00030001=00000301 
+00020002=00000202 
+00010002=00000102 
+00008001=00000081 
+00018002=00000182 
+00038001=00000381 
+00050001=00000501 
+00058001=00000581 
+-------------------------------------------

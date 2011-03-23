@@ -1,0 +1,71 @@
+2008-06-21  Alex <agon04@users.sourceforge.net>
+
+	ibcs-3.7
+
+	* Allow allocation of exactly 64Kb in "emu_brkctl"
+	* Decommitioned TIMETRAVEL feature in favour of ABI_Y2K_BUG personality
+
+2008-05-02  Alex <agon04@users.sourceforge.net>
+
+	ibcs-3.6
+
+	* Added (char *) memory checks, so nasty programs don't crash emulator
+	* ELF version
+
+2001-11-18  Jörg Ahrens <joergahrens@users.sourceforge.net>
+	
+	ibcs-2.2
+
+	* Added the timetravel feature because most 286
+	  xout binaries contain a broken libc calendar(Y2K).  
+	* Fixed memory allocation in emu_memory.c  
+	* Fixed lock handling for "pre-SysV V3.0 286" binaries.
+	  This was obviously a bug in Xenix but there are binaries
+	  relying on this bug. 
+
+1998-07-18  David Bruce <David@Hulcote.com>
+
+	ibcs-2.1
+
+	Major modifications to x286emul.
+	Fixed many bugs including:
+
+	* Environment of program is corrupt.
+	* brkctl() will not allow small model program to allocate
+	  far segment and leaks memory.
+	* Other system calls faulty, returning faulty data and
+	  some corrupting the data/stack.
+
+	Features added:
+
+	* Working Signals!!!
+	* Many new system calls.
+	* Floating point emulation.
+	* Small, medium, large and huge model programs all now work.
+	* Emulator patches the program to use "int 0xef"
+	  instead of "int 0x5" for system calls or if "NEW_SYSCALL"
+	  is defined the program will call the emulator directly for
+	  system calls so avoiding the trap into the operating system.
+	* If you put a "%d" in the "X286DEBUG" environment variable
+	  used as the file name to write debug information, the 
+	  emulator will replace this with the process id. Also
+	  the file descriptor is moved to a high number to get it
+	  out of the way of nasty programs.
+	* Reduced size of emulator by limiting the number of ldt
+	  entries to 256. This is the Maximum for 286 Xenix.
+	* Removed "in_emulator" variable and replaced with a check
+	  of the code segment of the interrupted code.
+
+	* Variable size stack for all programs.
+
+	Known Problems:
+
+	* Signals are not blocked during signal handlers. But then
+	  this is the same as on 386 Xenix.
+
+
+1995-07-21  Mike Jagdis <jaggy@purplet.demon.co.uk>
+
+	ibcs-1.2
+
+	* initial release of x286emul for Slackware 3.0
